@@ -3,6 +3,15 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var exhbs = require("express-handlebars");
 
+// TODO:
+// Make clickable elements with pointer Mouse
+// Better font and color scheme
+// Get ride of footer?
+// Better form layout
+// Party start page: (more obvious email thing)
+// Tab titles
+// Put on new repo?
+
 
 // Sets up the Express App
 var app = express();

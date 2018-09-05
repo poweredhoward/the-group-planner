@@ -17,24 +17,45 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
 
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.js"
+	integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+	crossorigin="anonymous"></script>
+
 </head>
 
 	<body>
 
-		<header>
+		<div class="mainbody">
 
-			<h1>DA <span id="party">PARTY </span>PLANNER</h1>
+			<h1>The Group Planner</h1>
 
+			<input type="text" id="roomquery"/>
+			<button id="roomqueryclick">Search</button>
+			<p id="error" style="visibility: hidden">Room not found</p>
+
+
+			<p>
+				Welcome to The Group Planner! This application enables you and your friends to use a custom "Room" to plan outings. 
+				
+				<br>If you know the name of your group's Room, simply put it in your browser's search bar. Otherwise 
+
+			</p>
+			<!-- </p>
 				<p>
-					WELCOME TO <span class="textBody">DA PARTY PLANNER </span>WEBSITE WHERE YOU AND YOUR FRIENDS CAN SET UP PRIVATE ROOMS TO PLAN YOUR NEXT GROUP OUTTING. SIMPLY CLICK THE <SPAN class="textBody">CREATE ROOM</SPAN> BUTTON BELOW TO START YOUR PRIVATE ROOM, ENTER A FEW SIMPLE OPTIONS FROM THE MENUS, THEN IT'S AS SIMPLE AS SENDING YOUR FRIENDS YOUR PERSONALIZED USER CODE FIGURING OUT EVERYONE'S AVAILABILITY AND VOTING ON YOUR NEXT GROUP DESTINATION!
-				</p>
+					Welcome to The Group Planner! This application enables you and your friends to use a custom "Room" to plan outings. 
+					
+					<br> How To Use: Simply pick a name for your group's Room and follow the link to the new Room. The link can additionally be emailed to you so you can forward it to everyone who belongs in the group. Anyone with the link can enter the Room. 
+					
+					<br>Once inside, users can individually pick days and times of day of availability, as well as pick premade or custom activities to do as a group. All responses are visible for everyone to see. The "Get Plan" button is where the magic happens. Simply click it once everyone has made their choices, and it will quickly and accurately display the most popular day, time and activity for your group. 
+				</p> -->
 				<br/>
 
-			<h2><a id="createRoom" href="/newroom">CREATE ROOM</a></h2>
+			<h2 id="createRoom"><a href="/newroom">CREATE ROOM</a></h2>
 
-		</header>
+			</div>
 
-		<footer class="footer-distributed">
+		<!-- <footer class="footer-distributed">
 
 			<div class="footer-left">
 
@@ -67,7 +88,30 @@
 
 			</div>
 
-		</footer>
+		</footer> -->
+		<script>
+			$("#roomqueryclick").click(function(){
+				var roomquery = $("#roomquery").val();
+				console.log(roomquery)
+				$.ajax({
+					url: "query/" + roomquery,
+					type: 'GET'
+				}).then(function(data){
+					console.log(data)
+
+					if(data === "none"){
+						$("#error").css("visibility", "visible");
+					}
+					else{
+						$("#error").css("visibility", "hidden");
+						$(location).attr('href', data)
+
+					}
+
+
+				})
+			});
+		</script>
 
 	</body>
 

@@ -304,6 +304,7 @@ module.exports = function(app) {
     app.get("/:room", function(req, res) {    
         var userlist = [];
         //Get room from name
+        console.log("Inside get room function")
         db.Room.findOne({
             where: {name: req.params.room}
         }).then(room =>{
@@ -375,6 +376,29 @@ module.exports = function(app) {
             }
             else{
                 res.sendFile(path.join(__dirname, "../public/form.html"));
+            }
+        })
+    });
+
+
+    //Send form page to front end
+    app.get("/query/:room", function(req, res) {
+        console.log("inside room form thing")
+        var roomname = req.params.room;
+        db.Room.findOne({
+            where: {
+                name: roomname
+            },
+            raw: true
+        }).then(result =>{
+            console.log(result);
+            if(result === null){
+                // res.sendFile(path.join(__dirname, "../public/error.html"));
+                res.send("none");
+            }
+            else{
+                // res.sendFile(path.join(__dirname, "../public/form.html"));
+                res.send(result.name);
             }
         })
     });
