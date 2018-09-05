@@ -32,6 +32,29 @@ h1{
 	padding-bottom: 16px; 
 }
 
+#roomquery{
+	line-height: 180%;
+}
+
+#roomqueryclick{
+	/* line-height: 250%; */
+	color: rgb(51, 17, 28);
+	text-decoration: none;
+	display: inline-block;
+	border: 1px solid rgb(51, 17, 28);
+	padding: 7px 15px;
+	margin-left: 10px;
+	border-radius: 3px;
+	font: bold 14px/1 'Open Sans', sans-serif;
+	text-transform: uppercase;
+}
+
+#error{
+	margin: 15px;
+	font-weight: bold;
+	font-size: 140%;
+}
+
 p {
 	color: rgb(163, 30, 163);
 	text-align: center;
