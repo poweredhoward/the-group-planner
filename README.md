@@ -28,8 +28,3 @@ Add screenshots or gif here
 * Install dependencies`npm install`
 * Start server `node start`
 * Visit `localhost:8888` on browser, app should be there ready to use
-
-
-
-## How To Use
-
