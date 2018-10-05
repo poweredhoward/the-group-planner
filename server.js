@@ -10,7 +10,6 @@ var exhbs = require("express-handlebars");
 // Better form layout
 // Party start page: (more obvious email thing)
 // Tab titles
-// Put on new repo?
 
 
 // Sets up the Express App
